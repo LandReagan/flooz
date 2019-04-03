@@ -22,9 +22,12 @@ dependencies:
 
   test: ^1.5.1+1
 
+  money: ^0.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 
 # For information on the generic Dart part of this file, see the
