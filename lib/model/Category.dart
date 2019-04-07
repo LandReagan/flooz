@@ -5,28 +5,27 @@ const Map<String, List<String>> DefaultCategories = {
   // todo: continue the defaulted list from examples
 };
 
+const UNKNOWN_CATEGORY = Category.unknown();
+
 class Category {
 
-  String _main;
-  String _sub;
+  final String _main;
+  final String _sub;
 
   // todo: get it updated by the database / user profile
   static Map<String, List<String>> categories = DefaultCategories;
 
-  Category(String main, String sub) {
-    if (categories.containsKey(main)) {
-      _main = main;
-      if (categories[_main].contains(sub)) {
-        _sub = sub;
-      } else {
-        _sub = "Unknown";
-      }
-    } else {
-      _main = "Unknown";
-      _sub = "Unknown";
-    }
-  }
+  Category(this._main, this._sub);
+
+  const Category.unknown() : this._main = "Unknown", this._sub = "Unknown";
 
   String get main => _main;
   String get sub => _sub;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'main': main,
+      'sub': sub
+    };
+  }
 }
